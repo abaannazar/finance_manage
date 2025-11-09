@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+<body>
+  <main>
+  <div class="header">
+    <div>
+      <h1>Finance Dashboard</h1>
+      <h6>Manage your accounts and transactions</h6>
+    </div>
+    <div>
+      <button>+ Add Transaction</button>
+    </div>
+  </div>
+  <div class="total-balance-card">
+    <div>
+      <h1>Total Balance</h1>
+      <h2 id="totalBalance">AED <span>0.00</span></h2>
+    </div>
+  </div>
+
+
+  <div class="accounts-overview">
+    <div class="account-card">
+      <div class="account-info">
+        <div>
+          <h3>Wallet</h3>
+          <p id="cashBalance">AED <span>0.00</span> </p>
+        </div>
+        <div class="icon bg-blue-500">
+          <i class="fa-solid fa-wallet"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="account-card">
+      <div class="account-info">
+        <div>
+          <h3>Bank Account</h3>
+          <p id="bankBalance">AED <span>0.00</span></p>
+        </div>
+        <div class="icon bg-green-500">
+          <i class="fa-solid fa-building-columns"></i>
+        </div>
+      </div>
+  </div>
+
+  </div>
+  <div class="transactions-card">
+    <div class="transactions-header">
+      <h2>Recent Transactions</h2>
+    </div>
+    <ul id="transactionList" class="transaction-list"></ul>
+  </div>
+
+  </main>
+  <footer>
+    <p> @ copyright abaannazar.com 2025</p>
+  </footer>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 120px;
+}
+.header h1{
+    font-family:  "Elms Sans", sans-serif;
+    color: #000000;
+    font-size: 45px;
+    font-weight: 600;
+    margin-bottom: 0%;
+}
+.header h6{
+    font-family: "Elms Sans", sans-serif;
+    font-weight: 400;
+    color: #303030;
+    font-size: 18px;
+    margin-top: 7px;
+}
+.header button{
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.header button:hover{
+    background-color: #333333;
+}
+
+.total-balance-card{
+    background: linear-gradient(135deg, #b845ff  0%, #ff00ea 100%);
+    padding: 20px;
+    border-radius: 10px;
+    height: 80px;
+    text-align: center;
+    margin: 0px 120px;
+    box-shadow: 0 1px 3px rgba(149, 74, 255, 0.05);
+    transition: box-shadow 0.2s ease;
+}
+.total-balance-card:hover {
+    box-shadow: 0 4px 10px rgba(205, 42, 255, 0.5);
+}
+.total-balance-card h2{
+    font-family: "Elms Sans", sans-serif;
+    color: white;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+}
+.total-balance-card h1{
+    font-family: "Elms Sans", sans-serif;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    margin-top: 5px;
+}
+.total-balance-card div{
+    text-align: left;
+    margin: 0px 40px;
+    align-items: center;
+}
+
+.accounts-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 0px 120px;
+  margin-top: 40px;
+}
+
+.account-card {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.account-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.account-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.account-info h3 {
+    font-family: "Elms Sans", sans-serif;
+  color: #333;
+  font-weight: 500;
+  margin: 0;
+
+}
+
+.account-info p {
+    font-family: "Elms Sans", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.icon.bg-blue-500 {
+  background-color: #3b82f6;
+}
+
+.icon.bg-green-500 {
+  background-color: #22c55e;
+}
+
+
+.transactions-card{
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s ease;
+    margin: 0px 120px;
+    margin-top: 40px;
+}
+.transactions-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.transactions-header h2{
+    font-family: "Elms Sans", sans-serif;
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+}
+.transactions-header button{
+    background: none;
+    border: none;
+    color: #6b21a8;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 350px;
+  max-width: 90%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.modal h2 {
+  margin-bottom: 0.3rem;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal input, .modal select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+#addBtn {
+  background: black;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#cancelBtn {
+  background: #f3f3f3;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.text-red { color: #e74c3c; }
+.text-green { color: #2ecc71; }
+
+.transaction-list {
+  list-style: none;
+  padding: 0;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.transaction-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.edit-btn, .delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555;
+}
+
+.edit-btn:hover { color: #007bff; }
+.delete-btn:hover { color: #e74c3c; }
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  font-family:  "Elms Sans", sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 350px;
+  max-width: 90%;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+#saveBtn {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#cancelBtn {
+  background: #f1f1f1;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.text-red { color: #e74c3c; }
+.text-green { color: #27ae60; }
+
+
+ul{
+  font-family:  "Elms Sans", sans-serif;
+}
+footer{
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #b9b9b9;
+    font-family:  "Elms Sans", sans-serif;
+  
+}

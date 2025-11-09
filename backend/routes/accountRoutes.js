@@ -3,7 +3,7 @@ import Account from '../models/Account.js';
 
 const router = express.Router();
 
-// Setup default accounts
+
 router.post('/setup', async (req, res) => {
   try {
     const existing = await Account.find();
@@ -20,7 +20,7 @@ router.post('/setup', async (req, res) => {
   }
 });
 
-// Get all accounts
+
 router.get('/', async (req, res) => {
   try {
     const accounts = await Account.find();
@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Update account
+
 router.put('/:id', async (req, res) => {
   try {
     const updated = await Account.findByIdAndUpdate(req.params.id, req.body, { new: true });

@@ -1,7 +1,7 @@
-// ============ CONFIG ============
-const API_BASE = "http://localhost:5000/api"; // change this when deployed
 
-// ============ DOM ELEMENTS ============
+const API_BASE = "http://localhost:5000/api"; 
+
+
 const addBtn = document.querySelector(".header button");
 const main = document.querySelector("main");
 const totalBalanceEl = document.querySelector("#totalBalance span");
@@ -12,12 +12,10 @@ const transactionList = document.querySelector("#transactionList");
 let accounts = [];
 let transactions = [];
 
-// ============ INIT ============
 window.addEventListener("DOMContentLoaded", async () => {
   await refreshData();
 });
 
-// ============ LOADERS ============
 async function refreshData() {
   await fetchAccounts();
   await fetchTransactions();
@@ -49,7 +47,6 @@ async function fetchTransactions() {
   }
 }
 
-// ============ BALANCE UPDATES ============
 function updateBalances() {
   const wallet = accounts.find(a => a.name?.toLowerCase().includes("wallet"));
   const bank = accounts.find(a => a.name?.toLowerCase().includes("bank"));
@@ -63,7 +60,6 @@ function updateBalances() {
   totalBalanceEl.textContent = total.toFixed(2);
 }
 
-// ============ TRANSACTIONS RENDER ============
 function renderTransactions() {
   transactionList.innerHTML = "";
 
@@ -107,7 +103,6 @@ function renderTransactions() {
   );
 }
 
-// ============ ADD / EDIT MODAL ============
 addBtn.addEventListener("click", () => openModal("add"));
 
 function openModal(mode, id = null) {
@@ -170,7 +165,6 @@ function openModal(mode, id = null) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // prevent double clicks
     saveBtn.disabled = true;
     saveBtn.textContent = "Saving...";
 
@@ -193,7 +187,7 @@ function openModal(mode, id = null) {
 
       await refreshData();
 
-      modal.remove(); // close after one submission
+      modal.remove(); 
     } catch (err) {
       console.error(err);
       alert("Error saving transaction. Check console.");
@@ -204,7 +198,6 @@ function openModal(mode, id = null) {
   });
 }
 
-// ============ DELETE TRANSACTION ============
 async function deleteTransaction(id) {
   if (!confirm("Are you sure you want to delete this transaction?")) return;
 

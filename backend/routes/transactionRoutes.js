@@ -4,14 +4,11 @@ import Account from "../models/Account.js";
 
 const router = express.Router();
 
-/* =====================================================
-   CREATE TRANSACTION
-   ===================================================== */
+
 router.post("/", async (req, res) => {
   try {
     const { account, type, amount, note, category, date } = req.body;
 
-    // Basic validation
     if (!account || !type || !amount || !category)
       return res.status(400).json({ error: "account, type, amount, and category are required" });
 
@@ -25,7 +22,6 @@ router.post("/", async (req, res) => {
     const acc = await Account.findById(account);
     if (!acc) return res.status(404).json({ error: "Account not found" });
 
-    // Create transaction
     const transaction = new Transaction({
       account,
       type,
@@ -36,7 +32,6 @@ router.post("/", async (req, res) => {
     });
     await transaction.save();
 
-    // Update account balance
     acc.balance += type === "income" ? parsedAmount : -parsedAmount;
     await acc.save();
 
@@ -47,9 +42,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-/* =====================================================
-   GET ALL TRANSACTIONS
-   ===================================================== */
 router.get("/", async (req, res) => {
   try {
     const transactions = await Transaction.find().populate("account");
@@ -59,9 +51,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-/* =====================================================
-   UPDATE TRANSACTION
-   ===================================================== */
+
 router.put("/:id", async (req, res) => {
   try {
     console.log("Incoming update body:", req.body);
@@ -70,7 +60,7 @@ router.put("/:id", async (req, res) => {
     const oldTransaction = await Transaction.findById(req.params.id);
     if (!oldTransaction) return res.status(404).json({ error: "Transaction not found" });
 
-    // Revert old transaction impact
+
     const oldAccount = await Account.findById(oldTransaction.account);
     if (oldAccount) {
       oldAccount.balance += oldTransaction.type === "income"
@@ -79,7 +69,7 @@ router.put("/:id", async (req, res) => {
       await oldAccount.save();
     }
 
-    // Validate new account
+ 
     const newAccount = await Account.findById(account || oldTransaction.account);
     if (!newAccount) return res.status(404).json({ error: "Account not found" });
 
@@ -89,7 +79,6 @@ router.put("/:id", async (req, res) => {
 
     const newType = type || oldTransaction.type;
 
-    // Update fields safely
     oldTransaction.account = account || oldTransaction.account;
     oldTransaction.type = newType;
     oldTransaction.amount = parsedAmount || oldTransaction.amount;
@@ -99,7 +88,6 @@ router.put("/:id", async (req, res) => {
 
     await oldTransaction.save();
 
-    // Apply new impact
     newAccount.balance += newType === "income"
       ? parsedAmount
       : -parsedAmount;
@@ -112,15 +100,11 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-/* =====================================================
-   DELETE TRANSACTION
-   ===================================================== */
 router.delete("/:id", async (req, res) => {
   try {
     const transaction = await Transaction.findById(req.params.id);
     if (!transaction) return res.status(404).json({ error: "Transaction not found" });
 
-    // Revert impact before deleting
     const acc = await Account.findById(transaction.account);
     if (acc) {
       acc.balance += transaction.type === "income"
